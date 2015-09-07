@@ -1,0 +1,35 @@
+n5-innsyn
+
+This is an early alpha version of a Noark 5 viewer. It is a REST service that returns JSON.
+
+This is a maven project, developed on Linux under Eclipse. To run the code you need to follow the following steps:
+
+1. Set up database
+
+Uses mysql. Under src/main/resources/config.properties file and here you can edit the details for the database username and password.
+The current default username is 'n5' and default password is 'n5pass'. You can change these or run the following commands in mysql
+to create the necessary objects.
+
+create database if not exists noark5;
+grant all privileges on noark5.* to n5@localhost identified by 'n5pass';
+
+2. Run program
+
+Locate the directory that has pom.xml and run the following
+mvn clean
+mvn spring-boot:run
+
+
+3. Check browser
+Open your borswer and type in the following address:
+
+http://localhost:9000/login
+
+You can logon using admin:password and then check the following.
+
+http://localhost:9000/fonds
+
+You will not find any data in the database, there is another tool called noark-5-validator that
+you can use to import a Noark 5 extraction with. A lot of the data model for n5v3.1 is in place. 
+The rest will be added (the complete n5v3.1 datamodel has already been implemented in the 
+noark-5-validator tool). We will add an SQL file that creates some data in the coming days

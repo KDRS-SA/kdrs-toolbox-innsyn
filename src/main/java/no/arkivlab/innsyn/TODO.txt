@@ -1,0 +1,19 @@
+# CRUDRepository does all the stuff you want, just define
+# methods. Test it out - tested
+# Does CRUD provide what we need?
+# Produce custom error handling pages
+# Transactions
+# Pagination on Fonds / Series / File / Record
+# Thyme integration
+
+
+# User roles and etc .Look at implementation in service
+# Search capapbilites like /file/12/keywordss
+#@RequestMapping(value="/hotels/{hotel}/bookings/{booking}", method=RequestMethod.GET)
+
+#Data binding in the controller?
+@InitBinder
+public void initBinder(WebDataBinder binder) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+}
